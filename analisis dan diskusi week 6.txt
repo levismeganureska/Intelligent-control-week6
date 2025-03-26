@@ -1,0 +1,21 @@
+Nama : Levis Mega Nureska
+Nim  : 224308010
+Kelas: TKA 6A
+Analisis dan diskusi week 6
+
+
+ Analisis:
+1.	Seberapa baik deteksi jalur dengan Instance Segmentation dibandingkan Canny?
+Deteksi jalur menggunakan Instance Segmentation umumnya lebih akurat dibandingkan dengan Canny Edge Detection karena mampu mengenali objek secara menyeluruh dan memberikan segmentasi berbasis instance, bukan hanya mendeteksi tepi. Instance Segmentation dapat membedakan jalur dari objek lain dalam gambar, bahkan dalam kondisi pencahayaan yang buruk atau latar belakang yang kompleks. Sebaliknya, Canny Edge Detection hanya mendeteksi perubahan intensitas piksel, sehingga rentan terhadap gangguan seperti bayangan, noise, atau tekstur yang menyerupai tepi jalur..
+2.	Apakah kombinasi kedua metode dapat meningkatkan akurasi?
+Kombinasi Canny Edge Detection dan Instance Segmentation berpotensi meningkatkan akurasi deteksi jalur. Canny dapat digunakan sebagai langkah awal untuk menyoroti tepi jalur secara kasar, sementara Instance Segmentation dapat mengoreksi hasil deteksi dengan memahami konteks gambar secara lebih mendalam. Integrasi ini dapat mengurangi kesalahan deteksi, terutama dalam kondisi lingkungan yang menantang seperti persimpangan yang rumit atau jalur yang tertutup sebagian..
+3.	Apa dampak perubahan parameter Canny (thresholds) terhadap hasil deteksi
+Perubahan parameter threshold pada Canny Edge Detection sangat berpengaruh terhadap hasil deteksi. Jika nilai threshold terlalu rendah, terlalu banyak tepi yang tidak relevan akan terdeteksi, sehingga meningkatkan noise dalam gambar. Sebaliknya, jika threshold terlalu tinggi, beberapa bagian jalur yang lebih samar mungkin tidak terdeteksi, menyebabkan hilangnya informasi penting. Oleh karena itu, pemilihan threshold yang optimal sangat krusial agar Canny Edge Detection dapat memberikan hasil yang lebih akurat, terutama saat dikombinasikan dengan Instance Segmentation.
+
+Diskusi:
+Kapan lebih baik menggunakan Canny Edge Detection dibanding Instance Segmentation?
+Canny Edge Detection lebih cocok digunakan dalam kondisi di mana perhitungan cepat dan efisiensi komputasi menjadi prioritas, seperti pada perangkat dengan daya pemrosesan terbatas atau sistem real-time yang memerlukan deteksi tepi sederhana tanpa memerlukan segmentasi berbasis objek. Metode ini juga efektif dalam lingkungan dengan kontras tinggi, di mana tepi jalur sangat jelas terlihat, seperti pada citra dengan pencahayaan baik dan latar belakang yang tidak terlalu kompleks. Namun, jika gambar memiliki banyak gangguan atau pencahayaan yang tidak merata, metode ini bisa menghasilkan banyak deteksi yang keliru.
+Bagaimana cara meningkatkan deteksi jalur dengan tuning parameter YOLOv8-seg?
+Untuk meningkatkan deteksi jalur menggunakan YOLOv8-seg, tuning parameter menjadi langkah penting. Beberapa aspek yang dapat disesuaikan termasuk confidence threshold, yang menentukan ambang batas kepercayaan model dalam mendeteksi suatu objek, serta IoU (Intersection over Union) threshold, yang mengontrol tingkat tumpang tindih yang diperbolehkan antara prediksi dan ground truth. Selain itu, penyesuaian arsitektur model seperti jumlah lapisan konvolusi dan ukuran anchor box dapat membantu model lebih responsif terhadap variasi bentuk dan ukuran jalur rel. Teknik augmentasi data, seperti rotasi, pemotongan, dan perubahan pencahayaan, juga dapat meningkatkan kemampuan generalisasi model terhadap berbagai kondisi lingkungan.
+Bagaimana metode ini dapat diterapkan dalam sistem navigasi kereta otomatis?
+Penerapan metode ini dalam sistem navigasi kereta otomatis dapat meningkatkan keamanan dan efisiensi operasional. Instance Segmentation dapat membantu dalam mendeteksi dan mengenali jalur rel dengan lebih presisi, memungkinkan sistem untuk memahami struktur lintasan dengan lebih baik, termasuk jalur bercabang, perlintasan sebidang, dan area dengan rintangan. Dengan kombinasi Canny Edge Detection untuk deteksi cepat dan Instance Segmentation untuk pemetaan detail, sistem navigasi dapat mengurangi risiko kesalahan dalam pengambilan keputusan, seperti menghindari tabrakan atau memastikan kereta tetap berada di jalur yang benar. Integrasi metode ini dengan sensor lain seperti LiDAR dan GPS juga dapat meningkatkan akurasi sistem navigasi secara keseluruhan
